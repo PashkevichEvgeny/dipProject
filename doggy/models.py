@@ -56,4 +56,7 @@ class Animal(models.Model):
     colour = models.ForeignKey(Colour, on_delete=models.CASCADE, related_name='animal_colour')
     life_story = models.TextField(max_length=500)
     health_state = models.ForeignKey(Health, on_delete=models.CASCADE, related_name='animal_health')
+    created = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=True)
+
 
