@@ -8,35 +8,35 @@ class Breed(models.Model):
     description = models.TextField(default=None)
 
 
-class Temper:
+class Temper(models.Model):
     type_temper = models.CharField(max_length=30)
 
 
-class Address:
+class Address(models.Model):
     city = models.CharField(max_length=30)
     street_building = models.CharField(max_length=10)
     contact_phone = models.CharField(max_length=12)
     work_hours = models.CharField()
 
 
-class Fur:
+class Fur(models.Model):
     type_fur = models.CharField()
 
 
-class Colour:
+class Colour(models.Model):
     name = models.CharField()
 
 
-class Medicament:
+class Medicament(models.Model):
     name = models.CharField(max_length=30)
 
 
-class Vaccination:
+class Vaccination(models.Model):
     name = models.ForeignKey(Medicament, on_delete=models.CASCADE, related_name='vaccination_name')
     date_created = models.DateTimeField(auto_now_add=True)
 
 
-class Health:
+class Health(models.Model):
     state = models.BooleanField()
     vaccination = models.ManyToManyField(Vaccination)
     parasite_treatment = models.BooleanField()
