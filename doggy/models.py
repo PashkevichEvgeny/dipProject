@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Breed(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=20)
     description = models.TextField(default=None)
 
 
@@ -16,15 +16,15 @@ class Address(models.Model):
     city = models.CharField(max_length=30)
     street_building = models.CharField(max_length=10)
     contact_phone = models.CharField(max_length=12)
-    work_hours = models.CharField()
+    work_hours = models.CharField(max_length=20)
 
 
 class Fur(models.Model):
-    type_fur = models.CharField()
+    type_fur = models.CharField(max_length=15)
 
 
 class Colour(models.Model):
-    name = models.CharField()
+    name = models.CharField(max_length=15)
 
 
 class Medicament(models.Model):
@@ -38,7 +38,7 @@ class Vaccination(models.Model):
 
 class Health(models.Model):
     state = models.BooleanField()
-    vaccination = models.ManyToManyField(Vaccination)
+    vaccination = models.ManyToManyField(Vaccination, related_name='vaccination_case')
     parasite_treatment = models.BooleanField()
 
 
@@ -51,7 +51,7 @@ class Animal(models.Model):
     height = models.IntegerField()
     temper = models.ForeignKey(Temper, on_delete=models.CASCADE, related_name='animal_temper')
     address = models.ForeignKey(Address, on_delete=models.CASCADE, related_name='animal_address')
-    image = models.CharField()
+    image = models.CharField(max_length=50)
     type_fur = models.ForeignKey(Fur, on_delete=models.CASCADE, related_name='animal_fur')
     colour = models.ForeignKey(Colour, on_delete=models.CASCADE, related_name='animal_colour')
     life_story = models.TextField(max_length=500)
