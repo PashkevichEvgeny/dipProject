@@ -63,6 +63,8 @@ class Health(models.Model):
 
 
 class Animal(models.Model):
+    objects = None
+
     class Gender(models.IntegerChoices):
         UNKNOWN = 0
         FEMALE = 1
