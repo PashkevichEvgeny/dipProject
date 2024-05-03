@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} {{ object.name }} {% endblock %}
+{% block content %}
+    <ul>
+        <li> {{ object.name }} </li>
+        <li> {{ object.gender }} </li>
+        <li> {{ object.breed }} </li>
+        <li> {{ object.fur.name }} </li>
+    </ul>
+{% endblock %}

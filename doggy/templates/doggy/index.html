@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}{{ post.title }}{% endblock %}
+{% block title %} Doggy {% endblock %}
 {% block content %}
     <h2>Content</h2>
+    <ul>
+    {% for animal in object_list %}
+        <li> <a href="{% url 'doggy:detail' pk=animal.pk %}" > {{ animal.pk }} {{ animal.name }} </a> </li>
+    {% endfor %}
+    </ul>
 {% endblock %}
