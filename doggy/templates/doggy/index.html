@@ -2,5 +2,11 @@
 {% block title %} Doggy {% endblock %}
 {% block content %}
     <h2>Content</h2>
-    {% include 'doggy/pagination.html' %}
+    {% if page_obj %}
+        {% include 'doggy/pagination.html' %}
+    {% else %}
+        {% for animal in object_list %}
+            <li><a href="{% url 'doggy:detail' pk=animal.pk %}" > {{ animal.pk }} {{ animal.name|upper }} </a></li>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
