@@ -15,6 +15,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 
 class AnimalListView(ListView):
+    paginate_by = 2
     template_name = template_name
     queryset = Animal.objects.all()
 
