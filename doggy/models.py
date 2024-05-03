@@ -48,7 +48,7 @@ class Vaccination(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class Health(models.Model):
@@ -84,7 +84,7 @@ class Animal(models.Model):
     height = models.PositiveIntegerField()
     temper = models.ForeignKey(Temper, on_delete=models.CASCADE, related_name='animal_temper')
     address = models.ForeignKey(Address, on_delete=models.CASCADE, related_name='animal_address')
-    image = models.ImageField(blank=True, default="media/default.png")
+    image = models.ImageField(blank=True, default="default.png")
     type_fur = models.IntegerField(choices=Fur, default=None)
     colour = models.ForeignKey(Colour, on_delete=models.CASCADE, related_name='animal_colour')
     life_story = models.TextField(max_length=500, blank=True)
